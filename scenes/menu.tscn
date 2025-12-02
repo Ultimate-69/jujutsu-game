@@ -1,4 +1,74 @@
-[gd_scene format=3 uid="uid://b3iixs76nqdbr"]
+[gd_scene load_steps=11 format=3 uid="uid://b3iixs76nqdbr"]
+
+[ext_resource type="FontFile" uid="uid://bub7raeb4axpk" path="res://assets/fonts/Inter/static/Inter_18pt-Regular.ttf" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://4lws768ljwb6" path="res://assets/images/menu.jpeg" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://c7715nlkes57i" path="res://scripts/scene_scripts/menu.gd" id="2_4ytvr"]
+[ext_resource type="FontFile" uid="uid://ccffwkdui8iqo" path="res://assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://cf54umhjcvh3x" path="res://assets/images/Jujutsu_Kaisen_logo.png" id="4_mhnvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ytvr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.22166497, 0.21141951, 0.21141951, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v86rl"]
+bg_color = Color(0.23345062, 0.57072306, 0.7240258, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3eks"]
+bg_color = Color(0.23345062, 0.57072306, 0.7240258, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0.1469897, 0.1469897, 0.1469897, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.43651408, 0.72652227, 0.7715464, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="Theme" id="Theme_vjb58"]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_con2f")
+Button/styles/disabled = SubResource("StyleBoxFlat_4ytvr")
+Button/styles/focus = SubResource("StyleBoxFlat_v86rl")
+Button/styles/hover = SubResource("StyleBoxFlat_g3eks")
+Button/styles/normal = SubResource("StyleBoxFlat_mhnvy")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,3 +77,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_vjb58")
+script = ExtResource("2_4ytvr")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yqeox")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 674.0
+offset_right = 185.0
+offset_bottom = 713.0
+theme_override_fonts/font = ExtResource("3_con2f")
+theme_override_font_sizes/font_size = 32
+text = "v0.0.1 DEV"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 106.0
+offset_right = 482.0
+offset_bottom = 695.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NewGame" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="Buttons"]
+layout_mode = 2
+disabled = true
+text = "Load Game"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Mods" type="Button" parent="Buttons"]
+layout_mode = 2
+disabled = true
+text = "Mods"
+
+[node name="Help" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Help"
+
+[node name="Extras" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Extras"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 668.0
+offset_bottom = 153.0
+texture = ExtResource("4_mhnvy")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="Buttons/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Buttons/Extras" to="." method="_on_extras_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

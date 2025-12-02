@@ -16,12 +16,24 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/globals/GameManager.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "blue",
+"res://scripts/": "yellow"
+}
 
 [rendering]
 
