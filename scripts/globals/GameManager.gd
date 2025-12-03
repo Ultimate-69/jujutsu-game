@@ -3,8 +3,12 @@ extends Node
 const PASS_KEY = "fhdiuawyfhioaw901279172"
 
 var save_path = "user://game.save"
+var current_slot = 1
 var save_data = {
-    "test" = 1
+    
+}
+var current_slot_data = {
+    
 }
 
 ## Save configs to separate cfg/ini file. TODO

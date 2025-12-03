@@ -1,0 +1,528 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfsw2kjqv24nw"]
+
+[ext_resource type="FontFile" uid="uid://ccffwkdui8iqo" path="res://assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://ctctrbp837nsp" path="res://scripts/scene_scripts/game.gd" id="1_yqjtg"]
+
+[sub_resource type="Theme" id="Theme_yqjtg"]
+Label/fonts/font = ExtResource("1_uwrxv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwrxv"]
+bg_color = Color(0.05705213, 0.13041866, 0.16056699, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uwrxv"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.24203092, 0.18627597, 0.19081554, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.24203092, 0.18627597, 0.19081554, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.24203092, 0.18627597, 0.19081554, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.24203092, 0.18627597, 0.19081554, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.17414433, 0.17414433, 0.17414433, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.22378641, 0.22378641, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqjtg")
+
+[node name="CharacterCreator" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yqjtg")
+
+[node name="Title" type="Label" parent="CharacterCreator"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.5
+offset_top = 17.0
+offset_right = 242.5
+offset_bottom = 94.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 56
+text = "Character Creator"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CharacterCreator"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 108.0
+offset_right = -25.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Section" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 415)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwrxv")
+
+[node name="SectionTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 15.0
+offset_right = 287.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "Basic Information"
+
+[node name="HSeparator" type="HSeparator" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 224.0
+offset_bottom = 61.0
+theme_override_styles/separator = SubResource("StyleBoxLine_uwrxv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 63.0
+offset_right = -26.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="ChoicePair" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Character Name"
+
+[node name="Name" type="LineEdit" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqjtg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lbhrr")
+placeholder_text = "Enter Name"
+
+[node name="ChoicePair2" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Affiliation"
+
+[node name="Affiliation" type="OptionButton" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnu2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iywne")
+selected = 0
+item_count = 3
+popup/item_0/text = "Jujutsu High Student"
+popup/item_0/id = 0
+popup/item_1/text = "Independent Sorcerer"
+popup/item_1/id = 1
+popup/item_2/text = "Curse User"
+popup/item_2/id = 2
+
+[node name="ChoicePair3" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Heavenly Restriction"
+
+[node name="HeavenlyRestriction" type="OptionButton" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnu2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iywne")
+selected = 0
+item_count = 3
+popup/item_0/text = "None (Recommended for Beginners)"
+popup/item_0/id = 0
+popup/item_1/text = "Physically Gifted, No Cursed Energy"
+popup/item_1/id = 1
+popup/item_2/text = "Physically Weak (Max Physical Stats 15), High Cursed Energy"
+popup/item_2/id = 2
+
+[node name="ChoicePair4" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cursed Technique"
+
+[node name="CursedTechnique" type="OptionButton" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair4"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnu2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iywne")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iywne")
+selected = 0
+item_count = 4
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Limitless"
+popup/item_1/id = 1
+popup/item_2/text = "Shrine"
+popup/item_2/id = 2
+popup/item_3/text = "Idle Transifguration"
+popup/item_3/id = 3
+
+[node name="Section2" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 315)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwrxv")
+
+[node name="SectionTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 15.0
+offset_right = 287.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "Attributes"
+
+[node name="HSeparator" type="HSeparator" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 137.0
+offset_bottom = 61.0
+theme_override_styles/separator = SubResource("StyleBoxLine_uwrxv")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 63.0
+offset_right = -26.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Distribute your Attribute Points here. This affects skill checks, available actions, combat opportunities, etc."
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Strength" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttributeTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Strength"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Remove" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Add" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Strength/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="Speed" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttributeTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Speed"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Remove" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Add" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Speed/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="Durability" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttributeTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Durability"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Remove" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Add" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Durability/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="Perception" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttributeTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Perception"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Remove" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Add" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/Perception/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="CursedEnergy" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="AttributeTitle" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Cursed Energy"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Remove" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "-"
+
+[node name="Value" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Add" type="Button" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "+"
+
+[node name="PointsRemaining" type="Label" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Points Remaining: 15"
+autowrap_mode = 2
+
+[connection signal="item_selected" from="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair3/HeavenlyRestriction" to="." method="_on_heavenly_restriction_item_selected"]
