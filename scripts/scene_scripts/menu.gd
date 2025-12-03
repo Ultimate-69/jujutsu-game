@@ -5,7 +5,7 @@ func _ready() -> void:
         $Buttons/Quit.visible = false
 
 func _on_new_game_pressed() -> void:
-    pass # Replace with function body.
+    get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 func _on_load_game_pressed() -> void:

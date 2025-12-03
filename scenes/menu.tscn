@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3iixs76nqdbr"]
+[gd_scene load_steps=10 format=3 uid="uid://b3iixs76nqdbr"]
 
-[ext_resource type="FontFile" uid="uid://bub7raeb4axpk" path="res://assets/fonts/Inter/static/Inter_18pt-Regular.ttf" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://4lws768ljwb6" path="res://assets/images/menu.jpeg" id="1_yqeox"]
 [ext_resource type="Script" uid="uid://c7715nlkes57i" path="res://scripts/scene_scripts/menu.gd" id="2_4ytvr"]
 [ext_resource type="FontFile" uid="uid://ccffwkdui8iqo" path="res://assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" id="3_con2f"]
@@ -64,7 +63,7 @@ expand_margin_bottom = 7.0
 
 [sub_resource type="Theme" id="Theme_vjb58"]
 Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("1_con2f")
+Button/fonts/font = ExtResource("3_con2f")
 Button/styles/disabled = SubResource("StyleBoxFlat_4ytvr")
 Button/styles/focus = SubResource("StyleBoxFlat_v86rl")
 Button/styles/hover = SubResource("StyleBoxFlat_g3eks")
