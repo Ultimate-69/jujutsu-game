@@ -390,7 +390,6 @@ disabled = true
 text = "Continue"
 
 [node name="CharacterCreator" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -431,7 +430,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="Section" type="Panel" parent="CharacterCreator/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 415)
+custom_minimum_size = Vector2(0, 330)
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uwrxv")
@@ -488,6 +487,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lbhrr")
 placeholder_text = "Enter Name"
 
 [node name="ChoicePair2" type="VBoxContainer" parent="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 6
 

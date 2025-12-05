@@ -3,10 +3,8 @@ extends Control
 func _ready() -> void:
     if OS.get_name() == "HTML5":
         $Buttons/Quit.visible = false
-    for i in range(4):
-        if GameManager.does_save_exist_at_slot(i + 1):
-            $Buttons/LoadGame.disabled = false
-            break
+    if GameManager.does_save_exist():
+        $Buttons/LoadGame.disabled = false        
 func _on_new_game_pressed() -> void:
     get_tree().change_scene_to_file("res://scenes/game_starter.tscn")
 

@@ -8,7 +8,7 @@ extends Control
 @onready var points_remaining_label: Label = $CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/PointsRemaining
 @onready var scenarios_container: VBoxContainer = $ScenarioSelector/ScrollContainer/VBoxContainer
 
-var chosen_scenario: int = 0
+var chosen_scenario: String = ""
 var creation_stat_points: int = 15:
     set(value):
         creation_stat_points = value
@@ -45,14 +45,13 @@ func init() -> void:
                 value.text = str(creation_stats[i])
         )
         i += 1
-    var j: int = 0
     for scenario: Panel in scenarios_container.get_children():
         var choose: Button = scenario.get_child(2)
+        var scenario_name: String = scenario.get_child(0).text
         choose.pressed.connect(func():
-            chosen_scenario = j    
+            chosen_scenario = scenario_name
             $ScenarioSelector/HBoxContainer/ContinueToCharacterCreation.disabled = false
         )
-        j += 1
 
 func _on_heavenly_restriction_item_selected(index: int) -> void:
     if index == 1:
@@ -92,13 +91,15 @@ func _on_name_text_changed(new_text: String) -> void:
         $CharacterCreator/ScrollContainer/VBoxContainer/Section3/HBoxContainer/Start.disabled = false
 
 func _on_start_pressed() -> void:
+    if GameManager.does_save_exist_at_slot(GameManager.current_slot):
+        GameManager.current_slot += 1
     GameManager.save_data = {
         "slot_" + str(GameManager.current_slot): {
             "name": character_data["name"],
-            "technique": cursed_technique.get_item_text(cursed_technique.selected),
+            "technique": cursed_technique.get_item_text(cursed_technique.selected).to_lower(),
             "heavenly_restriction": heavenly_restriction_options.selected,
-            "affiliation": %Affiliation.get_item_text(%Affiliation.selected),
-            "scenario": chosen_scenario,
+            "affiliation": "independent",
+            "scenario": chosen_scenario.to_lower(),
             "stats": {
                 "strength": creation_stats[0],
                 "speed": creation_stats[1],

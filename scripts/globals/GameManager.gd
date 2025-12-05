@@ -34,6 +34,17 @@ func save_game() -> void:
 func does_save_exist_at_slot(slot: int) -> bool:
     if FileAccess.file_exists(save_path + str(slot) + ".save"): return true
     return false
+
+func does_save_exist() -> bool:
+    var dir: DirAccess = DirAccess.open("user://")
+    if dir == null:
+        return false
+
+    for file in dir.get_files():
+        if file.begins_with("save_") and file.ends_with(".save"):
+            return true
+
+    return false
     
 func load_game() -> void:
     var file := FileAccess.open(save_path + str(current_slot) + ".save", FileAccess.READ)
