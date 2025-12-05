@@ -6,14 +6,26 @@ extends Control
 @onready var cursed_energy_value: Label = $CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer/CursedEnergy/VBoxContainer/HBoxContainer/Value
 @onready var attributes_container: HBoxContainer = $CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/HBoxContainer
 @onready var points_remaining_label: Label = $CharacterCreator/ScrollContainer/VBoxContainer/Section2/ScrollContainer/VBoxContainer/PointsRemaining
+@onready var scenarios_container: VBoxContainer = $ScenarioSelector/ScrollContainer/VBoxContainer
 
+var chosen_scenario: int = 0
 var creation_stat_points: int = 15:
     set(value):
         creation_stat_points = value
         points_remaining_label.text = "Points Remaining: " + str(value)
 var creation_stats = [0, 0, 0, 0, 0]
 
+var character_data = {
+    "name": ""
+}
+
 func _ready() -> void:
+    init()
+        
+func init() -> void:
+    $ScenarioSelector.visible = true
+    $CharacterCreator.visible = false
+    
     var i: int = 0
     for attribute: Panel in attributes_container.get_children():
         var container: HBoxContainer = attribute.get_child(0).get_child(1)
@@ -33,6 +45,14 @@ func _ready() -> void:
                 value.text = str(creation_stats[i])
         )
         i += 1
+    var j: int = 0
+    for scenario: Panel in scenarios_container.get_children():
+        var choose: Button = scenario.get_child(2)
+        choose.pressed.connect(func():
+            chosen_scenario = j    
+            $ScenarioSelector/HBoxContainer/ContinueToCharacterCreation.disabled = false
+        )
+        j += 1
 
 func _on_heavenly_restriction_item_selected(index: int) -> void:
     if index == 1:
@@ -48,3 +68,48 @@ func _on_heavenly_restriction_item_selected(index: int) -> void:
         cursed_technique.disabled = false
         cursed_energy.visible = true
         cursed_technique.focus_mode = Control.FOCUS_ALL
+
+
+func _on_back_pressed() -> void:
+    $CharacterCreator.visible = false
+    $ScenarioSelector.visible = true
+
+
+func _on_back_to_menu_pressed() -> void:
+    get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+
+func _on_continue_to_character_creation_pressed() -> void:
+    $ScenarioSelector.visible = false
+    $CharacterCreator.visible = true
+
+
+func _on_name_text_changed(new_text: String) -> void:
+    character_data["name"] = new_text
+    if new_text == "":
+        $CharacterCreator/ScrollContainer/VBoxContainer/Section3/HBoxContainer/Start.disabled = true
+    else:
+        $CharacterCreator/ScrollContainer/VBoxContainer/Section3/HBoxContainer/Start.disabled = false
+
+func _on_start_pressed() -> void:
+    GameManager.save_data = {
+        "slot_" + str(GameManager.current_slot): {
+            "name": character_data["name"],
+            "technique": cursed_technique.get_item_text(cursed_technique.selected),
+            "heavenly_restriction": heavenly_restriction_options.selected,
+            "affiliation": %Affiliation.get_item_text(%Affiliation.selected),
+            "scenario": chosen_scenario,
+            "stats": {
+                "strength": creation_stats[0],
+                "speed": creation_stats[1],
+                "durability": creation_stats[2],
+                "perception": creation_stats[3],
+                "cursed_energy": creation_stats[4],
+            },
+            "gameplay_data": {
+                
+            }
+        }
+    }
+    GameManager.save_game()
+    get_tree().change_scene_to_file("res://scenes/game.tscn")
