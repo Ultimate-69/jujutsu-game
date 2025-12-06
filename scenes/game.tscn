@@ -1,6 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://cauyb7nf4ed51"]
+[gd_scene load_steps=9 format=3 uid="uid://cauyb7nf4ed51"]
 
 [ext_resource type="Script" uid="uid://b1dqd1t7v0v3k" path="res://scripts/scene_scripts/game.gd" id="1_uwrxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwrxv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
+bg_color = Color(0.15377831, 0.121387474, 0.121387474, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
+bg_color = Color(0.19451028, 0.10109274, 0.16677222, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.07910305, 0.043713305, 0.06878105, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.22845358, 0.15328993, 0.20653085, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.078431375, 0.043137256, 0.07058824, 0.85882354)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.07910305, 0.043713305, 0.06878105, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -10,3 +66,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwrxv")
+
+[node name="Sidebar" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 295.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwrxv")
+
+[node name="MainDisplay" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_right = 1279.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 25.0
+offset_right = -35.35974
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainDisplay/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainGameText" type="RichTextLabel" parent="MainDisplay/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+bbcode_enabled = true
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainDisplay/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Choices" type="VBoxContainer" parent="MainDisplay/ScrollContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Choice" type="Button" parent="MainDisplay/ScrollContainer/VBoxContainer/ScrollContainer/Choices"]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_lnu2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbhrr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u5sy4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p57ef")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iywne")
+text = "Choice 1"
