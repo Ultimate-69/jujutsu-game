@@ -1,6 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cauyb7nf4ed51"]
+[gd_scene load_steps=11 format=3 uid="uid://cauyb7nf4ed51"]
 
 [ext_resource type="Script" uid="uid://b1dqd1t7v0v3k" path="res://scripts/scene_scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://ccffwkdui8iqo" path="res://assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" id="1_yqjtg"]
+
+[sub_resource type="Theme" id="Theme_lnu2h"]
+default_font = ExtResource("1_yqjtg")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwrxv"]
 
@@ -65,6 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_lnu2h")
 script = ExtResource("1_uwrxv")
 
 [node name="Sidebar" type="Panel" parent="."]
@@ -88,7 +93,7 @@ anchor_bottom = 1.0
 offset_left = 37.0
 offset_top = 25.0
 offset_right = -35.35974
-offset_bottom = -28.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -101,22 +106,27 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
 bbcode_enabled = true
-horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainDisplay/ScrollContainer/VBoxContainer"]
+[node name="ChoicesContainer" type="ScrollContainer" parent="MainDisplay/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Choices" type="VBoxContainer" parent="MainDisplay/ScrollContainer/VBoxContainer/ScrollContainer"]
+[node name="Choices" type="VBoxContainer" parent="MainDisplay/ScrollContainer/VBoxContainer/ChoicesContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Choice" type="Button" parent="MainDisplay/ScrollContainer/VBoxContainer/ScrollContainer/Choices"]
-visible = false
+[node name="Choice1" type="Button" parent="MainDisplay/ScrollContainer/VBoxContainer/ChoicesContainer/Choices"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_lnu2h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lbhrr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u5sy4")

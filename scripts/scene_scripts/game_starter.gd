@@ -53,21 +53,6 @@ func init() -> void:
             $ScenarioSelector/HBoxContainer/ContinueToCharacterCreation.disabled = false
         )
 
-func _on_heavenly_restriction_item_selected(index: int) -> void:
-    if index == 1:
-        cursed_technique.disabled = true
-        cursed_technique.selected = 0
-        cursed_energy.visible = false
-        if creation_stats[4] > 0:
-            creation_stat_points += creation_stats[4]
-            creation_stats[4] = 0
-            cursed_energy_value.text = "0"
-        cursed_technique.focus_mode = Control.FOCUS_NONE
-    else:
-        cursed_technique.disabled = false
-        cursed_energy.visible = true
-        cursed_technique.focus_mode = Control.FOCUS_ALL
-
 
 func _on_back_pressed() -> void:
     $CharacterCreator.visible = false

@@ -1,12 +1,14 @@
 extends Node
 
+signal choice_made(choice: String, choice_id: int)
+
 var save_path = "user://save_"
 var current_slot = 1
 var save_data = {
     #"slot_1": {
         #"name": "",
         #"technique": "",
-        #"heavenly_restriction": "", 0 = none, 1 = toji, 2 = mai but better
+        #"heavenly_restriction": "", 0 = none, 1 = maki but better, 2 = mai but better
         #"affiliation": "",
         #"scenario": "",
         #"stats": {

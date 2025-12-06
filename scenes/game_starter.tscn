@@ -858,6 +858,5 @@ text = "Start Game"
 [connection signal="pressed" from="ScenarioSelector/HBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="ScenarioSelector/HBoxContainer/ContinueToCharacterCreation" to="." method="_on_continue_to_character_creation_pressed"]
 [connection signal="text_changed" from="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair/Name" to="." method="_on_name_text_changed"]
-[connection signal="item_selected" from="CharacterCreator/ScrollContainer/VBoxContainer/Section/ScrollContainer/VBoxContainer/ChoicePair3/HeavenlyRestriction" to="." method="_on_heavenly_restriction_item_selected"]
 [connection signal="pressed" from="CharacterCreator/ScrollContainer/VBoxContainer/Section3/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CharacterCreator/ScrollContainer/VBoxContainer/Section3/HBoxContainer/Start" to="." method="_on_start_pressed"]
