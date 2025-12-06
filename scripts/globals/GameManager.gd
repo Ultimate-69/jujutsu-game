@@ -3,30 +3,30 @@ extends Node
 var save_path = "user://save_"
 var current_slot = 1
 var save_data = {
-    "slot_1": {
-        "name": "",
-        "technique": "",
-        "heavenly_restriction": "", # 0 = none, 1 = toji, 2 = mai but better
-        "affiliation": "",
-        "scenario": "",
-        "stats": {
-            "strength": 0,
-            "speed": 0,
-            "durability": 0,
-            "perception": 0,
-            "cursed_energy": 0,
-        },
-        "gameplay_data": {
-            
-        }
-    }   
+    #"slot_1": {
+        #"name": "",
+        #"technique": "",
+        #"heavenly_restriction": "", 0 = none, 1 = toji, 2 = mai but better
+        #"affiliation": "",
+        #"scenario": "",
+        #"stats": {
+            #"strength": 0,
+            #"speed": 0,
+            #"durability": 0,
+            #"perception": 0,
+            #"cursed_energy": 0,
+        #},
+        #"gameplay_data": {
+            #
+        #}
+    #}   
 }
 var is_new_game: bool = true
 
 ## Save configs to separate cfg/ini file. TODO
-## Choose save slot depending on current loaded save. If no data, then no need to save data anyways. TODO
+## Choose save slot depending on current loaded save. If no data, then no need to save data anyways.
 func save_game() -> void:
-    if save_data["slot_" + str(current_slot)]["name"] == "": return 
+    if save_data.is_empty(): return 
     var file := FileAccess.open(save_path + str(current_slot) + ".save", FileAccess.WRITE)
     file.store_var(save_data["slot_" + str(current_slot)], true)
     file.close()
@@ -45,6 +45,19 @@ func does_save_exist() -> bool:
             return true
 
     return false
+    
+func get_all_save_slots() -> Array[int]:
+    var dir: DirAccess = DirAccess.open("user://")
+    if dir == null:
+        return []
+    
+    var found_slots: Array[int] = []
+    var found_slot_index: int = 1
+    for file in dir.get_files():
+        if file.begins_with("save_") and file.ends_with(".save"):
+            found_slots.append(found_slot_index)
+            found_slot_index += 1
+    return found_slots
     
 func load_game() -> void:
     var file := FileAccess.open(save_path + str(current_slot) + ".save", FileAccess.READ)
