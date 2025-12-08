@@ -133,3 +133,57 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_u5sy4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_p57ef")
 theme_override_styles/focus = SubResource("StyleBoxFlat_iywne")
 text = "Choice 1"
+
+[node name="FightDisplay" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_right = 1279.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FightDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 25.0
+offset_right = -35.35974
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FightDisplay/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FightText" type="RichTextLabel" parent="FightDisplay/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+
+[node name="Actions" type="HBoxContainer" parent="FightDisplay/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Offensive" type="Button" parent="FightDisplay/ScrollContainer/VBoxContainer/Actions"]
+layout_mode = 2
+text = "Offense"
+
+[node name="Defensive" type="Button" parent="FightDisplay/ScrollContainer/VBoxContainer/Actions"]
+layout_mode = 2
+text = "Defense"
+
+[node name="Utility" type="Button" parent="FightDisplay/ScrollContainer/VBoxContainer/Actions"]
+layout_mode = 2
+text = "Utility"
+
+[node name="Special" type="Button" parent="FightDisplay/ScrollContainer/VBoxContainer/Actions"]
+layout_mode = 2
+text = "Special"

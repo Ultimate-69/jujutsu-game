@@ -1,6 +1,21 @@
 extends Node
 
 signal choice_made(choice: String, choice_id: int)
+signal current_text_changed(text: String, text_id: int)
+
+enum Grade {
+    Grade4 = 4,
+    Grade3 = 3,
+    Grade2 = 2,
+    Grade1 = 1,
+    Special = 0
+}
+
+enum Class {
+    Sorcerer = 0,
+    CurseUser = 1,
+    CursedSpirit = 2    
+}
 
 var save_path = "user://save_"
 var current_slot = 1
